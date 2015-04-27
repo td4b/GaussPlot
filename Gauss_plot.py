@@ -127,7 +127,7 @@ for i in range (1,num_length+1):
         
 # Calculate free energy change at each step.
 
-# zero-point is always the first item in the list.
+# zero-point is identified from 1st step of reaction choordinate.
 
 zero = new_values[0:1]
 
