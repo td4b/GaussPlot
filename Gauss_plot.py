@@ -98,7 +98,7 @@ def main():
         while files != 0:
             root = Tk()
             root.withdraw()
-            ftypes = [('Gaussian Output File',"*.out")]
+            ftypes = [('Gaussian Output File','*.out'),('Gaussian Log File', '*.log')]
             ttl  = "MATERIAL"
             dir1 = 'C:\\'
             root.fileName = askopenfilename(filetypes = ftypes, initialdir = dir1, title = ttl)
