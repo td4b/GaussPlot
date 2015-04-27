@@ -1,7 +1,7 @@
 # GaussPlot
 Generate Free Energy Plots for a Reaction Pathway using Gaussian Output Files.
 
-[Click Here for Installation Instructions/ Wiki Page](https://github.com/tewest/Gaussian_sikuli/wiki)
+[Click Here for Installation Instructions/ Wiki Page](https://github.com/tewest/GaussPlot/wiki)
 
 Copyright 2015 Thomas E. West 
 
