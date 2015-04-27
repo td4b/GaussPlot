@@ -134,7 +134,7 @@ zero = new_values[0:1]
 zero_value = 0
 
 for x in zero:
-    zero_value += float(x)
+    zero_value += x
 
 plot_x = []
 plot_y = []
