@@ -74,8 +74,8 @@ def graph(x,y,z):
 
 
 
-num_ts = int(input ('How many steps in the reaction?: '))
-num = num_ts
+ts = int(input ('How many steps in the reaction?: '))
+num = ts
 num *= 2
 
 num_files = []
@@ -89,6 +89,7 @@ while num > -1:
     num_files.append(files)
     while files != 0:
         root = Tk()
+        root.withdraw()
         ftypes = [('Gaussian Output File',"*.out")]
         ttl  = "MATERIAL"
         dir1 = 'C:\\'
@@ -171,3 +172,4 @@ for i in plot_y:
     
 # use our graph function to graph the results!
 graph(final_x,final_y,final_z)
+
