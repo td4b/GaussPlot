@@ -69,10 +69,9 @@ def enthalpy(z):
 
 def graph(x,y,z):
     plt.suptitle('Free Energy Diagram ', fontsize=20)
-    plt.xlabel('Reaction Choordinate', fontsize=18)
     plt.ylabel("Free Energy\nKcal/mol", fontsize=18)
     line = plt.plot(x,z)
-    plt.setp(line, linewidth=2,color='k', linestyle='-')
+    plt.setp(line, linewidth=2,color='k', linesyle='-')
     plt.xticks(x,fontsize = 18)
     plt.yticks(y, fontsize = 18)
     line1 = plt.plot(x,y)
@@ -84,103 +83,106 @@ def graph(x,y,z):
     plt.show()
 
 
-
-ts = int(input ('How many steps in the reaction?: '))
-num = ts
-num *= 2
-
-num_files = []
-lst = []
-
-point_num = 1
-while num > -1:
-    string1 = 'Enter the number of files at point ' + str(point_num) + ': '   
-    files = int(input(string1))
-    point_num = point_num + 1
-    num_files.append(files)
-    while files != 0:
-        root = Tk()
-        root.withdraw()
-        ftypes = [('Gaussian Output File',"*.out")]
-        ttl  = "MATERIAL"
-        dir1 = 'C:\\'
-        root.fileName = askopenfilename(filetypes = ftypes, initialdir = dir1, title = ttl)
-        lst.append(root.fileName)
-        root.destroy()
-        files -= 1
-        
-    num -= 1
-
-num_length = len(num_files)
-
-length = len(lst)
-
-values = []
-
-for i in range (1,length+1):
-    for n in lst[i-1:i]:
-        values.append(gibbs(n))
-
-new_values = []
-fc = 0   
-dc = 0
-for i in range (1,num_length+1):
-    for n in num_files[i-1:i]:
-        fc += int(n)
-        dc += int(-n)
-        dc = fc + dc
-        add_to = values[dc:fc]
-        adder = 0
-        for c in add_to:
-            adder += round(float(c),4) # remove noise from gaussian calculation.
-        dc = 0
-        new_values.append(adder)
-        
-# Calculate free energy change at each step.
-
-# zero-point is identified from 1st step of reaction choordinate.
-
-zero = new_values[0:1]
-
-zero_value = 0
-
-for x in zero:
-    zero_value += x
-
-plot_x = []
-plot_y = []
-plot_x.append(0)
-plot_y.append(0)
-
-for i in range (1,num_length):
-    for n in new_values[i:i+1]:
-         numba = n - zero_value
-         numba = numba*627.503 # convert to a.u.
-         numba = round(numba,1) # round to 1 decimal place. 
-         plot_x.append(numba)
-         plot_y.append(0)
-
-
-# formatting chart.
-      
-final_y = []
-
-for i in plot_x:
-    final_y.append(i)
-    final_y.append(i)
-
-final_x = []
-
-for i in range(1,len(final_y)+1):
-    final_x.append(i)
-
- 
-final_z = []
-
-for i in plot_y:
-    final_z.append(i)
-    final_z.append(i)
+def main():
+    ts = int(input ('How many steps in the reaction?: '))
+    num = ts
+    num *= 2
     
-# use our graph function to graph the results!
-graph(final_x,final_y,final_z)
+    num_files = []
+    lst = []
+    
+    point_num = 1
+    while num > -1:
+        string1 = 'Enter the number of files at point ' + str(point_num) + ': '   
+        files = int(input(string1))
+        point_num = point_num + 1
+        num_files.append(files)
+        while files != 0:
+            root = Tk()
+            root.withdraw()
+            ftypes = [('Gaussian Output File',"*.out")]
+            ttl  = "MATERIAL"
+            dir1 = 'C:\\'
+            root.fileName = askopenfilename(filetypes = ftypes, initialdir = dir1, title = ttl)
+            lst.append(root.fileName)
+            root.destroy()
+            files -= 1
+            
+        num -= 1
+    
+    num_length = len(num_files)
+    
+    length = len(lst)
+    
+    values = []
+    
+    for i in range (1,length+1):
+        for n in lst[i-1:i]:
+            values.append(gibbs(n))
+    
+    new_values = []
+    fc = 0   
+    dc = 0
+    for i in range (1,num_length+1):
+        for n in num_files[i-1:i]:
+            fc += int(n)
+            dc += int(-n)
+            dc = fc + dc
+            add_to = values[dc:fc]
+            adder = 0
+            for c in add_to:
+                adder += round(float(c),4) # remove noise from gaussian calculation.
+            dc = 0
+            new_values.append(adder)
+            
+    # Calculate free energy change at each step.
+    
+    # zero-point is always the first item in the list.
+    
+    zero = new_values[0:1]
+    
+    zero_value = 0
+    
+    for x in zero:
+        zero_value += x
+    
+    plot_x = []
+    plot_y = []
+    plot_x.append(0)
+    plot_y.append(0)
+    
+    for i in range (1,num_length):
+        for n in new_values[i:i+1]:
+             numba = n - zero_value
+             numba = numba*627.503 # convert to a.u.
+             numba = round(numba,1) # round to 1 decimal place. 
+             plot_x.append(numba)
+             plot_y.append(0)
+    
+    
+    # formatting chart.
+          
+    final_y = []
+    
+    for i in plot_x:
+        final_y.append(i)
+        final_y.append(i)
+    
+    final_x = []
+    
+    for i in range(1,len(final_y)+1):
+        final_x.append(i)
+    
+     
+    final_z = []
+    
+    for i in plot_y:
+        final_z.append(i)
+        final_z.append(i)
+        
+    # use our graph function to graph the results!
+    graph(final_x,final_y,final_z)
+
+
+main()
 
