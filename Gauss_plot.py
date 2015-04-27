@@ -1,15 +1,4 @@
 # -*- coding: utf-8 -*-
-'''
-
- Copyright (c)  2015  Thomas E. West.
-    Permission is granted to copy, distribute and/or modify this document
-    under the terms of the GNU Free Documentation License, Version 1.3
-    or any later version published by the Free Software Foundation;
-    with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
-    A copy of the license is included in the section entitled "GNU
-    Free Documentation License".
-'''
-
 """
 Created on Fri Apr 24 23:57:53 2015
 @author: tewest
@@ -18,8 +7,80 @@ Created on Fri Apr 24 23:57:53 2015
 import matplotlib.pyplot as plt
 from tkinter import Tk
 from tkinter.filedialog import askopenfilename
+import os
+import time
+
+os.system("mode con cols=83 lines=65")
 
 ''' definitions for value retrieval from files '''
+
+print('''
+
+    
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                    %%%%%%%%%%%%%%@@@@@@@@%%%%%%%%%%%%
+                    %%%%%%%%%%%%%%@@%%%%%%%%%%%%%%%%%%
+                    %%%%%%%%%%%%%%@@%%@@@@%%%%%%%%%%%%
+                    %%%%%%%%%%%%%%@@%%%%@@%%%%%%%%%%%%
+                    %%%%%%%%%%%%%%@@@@@@@@%%%%%%%%%%%%
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                    %%%%%%%%%%%*****PLT*****%%%%%%%%%%
+                    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+''')
+time.sleep(1)
+
+print('''
+    Copyright (c)  2015  Thomas E. West.
+    Permission is granted to copy, distribute and/or modify this document
+    under the terms of the GNU Free Documentation License, Version 1.3
+    or any later version published by the Free Software Foundation;
+    with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+    A copy of the license is included in the section entitled "GNU
+    Free Documentation License".
+''')
+time.sleep(1)
+print ('''
+ ### Readme ###
+
+    * Steps in the reaction refers to the number of transition states or
+    "energy barriers" to the reaction process. This is the first entity the 
+    program prompts for.
+    
+    * The program will then ask the user for the number of files at each 
+    successive step along the reaction path (reaction coordinate, see below), 
+    and then gives the user a prompt to open the Gaussian output/ log file. 
+    
+    * Below is an example of how to properly enter the information:
+    
+                                [C]
+                                ____       [E]
+                               |    |     ____
+                               |    |    |    |  F
+                          _____|    |    |    |_____
+                          A + B     |    |
+                                    |____|     
+                                      D
+    ----------------------------------------------------------------------
+    -------------------------------EXAMPLE--------------------------------
+    ----------------------------------------------------------------------
+    1) The reaction above has 2 transition states, so the first prompt we
+    enter  is 2.
+    2) The 1st point on the reaction coordinate is A+B, enter the number of 
+    files at this point.
+    3) Next we are at the first TS which is [C], enter the number of files here.
+    4) Again we are now at D so enter the number of files here... 
+    5) Rinse and repeat until you are at the last step of the reaction path.
+    
+    * The program calculates the free energy change at each point and prints
+      the results for the user using matplotlib. The program sets A+B as the
+      zero-point! 
+      
+      NOTE: The program can open both .log and .out files, make sure you select 
+      the proper file in the file prompt window!
+    ----------------------------------------------------------------------
+    ----------------------------------------------------------------------
+
+''')
 
 # gaussian file reader, gibbs free energy. 
 
@@ -91,7 +152,7 @@ def main():
     
     num_files = []
     lst = []
-    step = 0
+    step = 0    
     
     while num > -1:
         x = 'Enter the number of files at step ' 
@@ -102,7 +163,7 @@ def main():
         while files != 0:
             root = Tk()
             root.withdraw()
-            ftypes = [('Gaussian Output File','*.out'),('Gaussian Log File', '*.log')]
+            ftypes = [('Gaussian Output File',"*.out"),("Gaussian Log File", "*.log")]
             ttl  = "MATERIAL"
             dir1 = 'C:\\'
             root.fileName = askopenfilename(filetypes = ftypes, initialdir = dir1, title = ttl)
@@ -187,3 +248,19 @@ def main():
 
 
 main()
+
+
+
+    
+
+
+
+
+
+
+    
+    
+    
+    
+
+
