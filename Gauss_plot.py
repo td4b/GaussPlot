@@ -12,7 +12,6 @@
 
 """
 Created on Fri Apr 24 23:57:53 2015
-
 @author: tewest
 """
 # import modules to use.
@@ -61,7 +60,6 @@ def enthalpy(z):
         value = float(i)
         return value
         
-
         
     text_file.close()
 '''
@@ -69,9 +67,10 @@ def enthalpy(z):
 
 def graph(x,y,z):
     plt.suptitle('Free Energy Diagram ', fontsize=20)
+    plt.xlabel('Reaction Choordinate', fontsize=18)
     plt.ylabel("Free Energy\nKcal/mol", fontsize=18)
     line = plt.plot(x,z)
-    plt.setp(line, linewidth=2,color='k', linesyle='-')
+    plt.setp(line, linewidth=2,color='k', linestyle='-')
     plt.xticks(x,fontsize = 18)
     plt.yticks(y, fontsize = 18)
     line1 = plt.plot(x,y)
@@ -83,19 +82,18 @@ def graph(x,y,z):
     plt.show()
 
 
+
 def main():
-    ts = int(input ('How many steps in the reaction?: '))
-    num = ts
+    
+    num_ts = int(input ('How many steps in the reaction?: '))
+    num = num_ts
     num *= 2
     
     num_files = []
     lst = []
     
-    point_num = 1
     while num > -1:
-        string1 = 'Enter the number of files at point ' + str(point_num) + ': '   
-        files = int(input(string1))
-        point_num = point_num + 1
+        files = int(input('Enter the number of files at this point: '))
         num_files.append(files)
         while files != 0:
             root = Tk()
@@ -144,7 +142,7 @@ def main():
     zero_value = 0
     
     for x in zero:
-        zero_value += x
+        zero_value += float(x)
     
     plot_x = []
     plot_y = []
@@ -185,4 +183,3 @@ def main():
 
 
 main()
-
