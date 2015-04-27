@@ -91,9 +91,13 @@ def main():
     
     num_files = []
     lst = []
+    step = 0
     
     while num > -1:
-        files = int(input('Enter the number of files at this point: '))
+        x = 'Enter the number of files at step ' 
+        step += 1
+        x = x + str(step) +': ' 
+        files = int(input(x))
         num_files.append(files)
         while files != 0:
             root = Tk()
