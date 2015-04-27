@@ -81,8 +81,11 @@ num *= 2
 num_files = []
 lst = []
 
+point_num = 1
 while num > -1:
-    files = int(input('Enter the number of files at this point: '))
+    string1 = 'Enter the number of files at point ' + str(point_num) + ': '   
+    files = int(input(string1))
+    point_num = point_num + 1
     num_files.append(files)
     while files != 0:
         root = Tk()
@@ -93,9 +96,6 @@ while num > -1:
         lst.append(root.fileName)
         root.destroy()
         files -= 1
-        print(lst)
-        print(num)
-        print(num_files)
         
     num -= 1
 
@@ -171,21 +171,3 @@ for i in plot_y:
     
 # use our graph function to graph the results!
 graph(final_x,final_y,final_z)
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-    
-    
-    
-    
