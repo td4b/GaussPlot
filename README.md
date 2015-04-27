@@ -1,7 +1,7 @@
 # GaussPlot
 Generate Free Energy Plots for a Reaction Pathway using Gaussian Output Files.
 
-Currently only works with non extrapolative methods, working on integrating the option to select for finding energies when an extrapolation is done in Gaussian.
+Works with both non-extrapolative and extrapolative output files.
 
 [Click Here for Installation Instructions/ Wiki Page](https://github.com/tewest/GaussPlot/wiki)
 
