@@ -55,9 +55,9 @@ print ('''
                                 [C]
                                 ____       [E]
                                |    |     ____
-                               |    |    |    |  F
+                               |    |    |    |  
                           _____|    |    |    |_____
-                          A + B     |    |
+                          A + B     |    |       F
                                     |____|     
                                       D
     ----------------------------------------------------------------------
@@ -82,7 +82,8 @@ print ('''
 
 ''')
 
-# gaussian file reader, gibbs free energy. 
+# gaussian file reader, gibbs free energy. Going to add a deltaG of reaction
+# calculation soon.  
 
 def gibbs(z):
     # assign .log to indicated file name should be an int.
