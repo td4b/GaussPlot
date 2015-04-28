@@ -5,8 +5,6 @@ Works with both non-extrapolative and extrapolative output files.
 
 [Click Here for Installation Instructions/ Wiki Page](https://github.com/tewest/GaussPlot/wiki)
 
-Copyright 2015 Thomas E. West 
-
 This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
