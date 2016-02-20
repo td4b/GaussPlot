@@ -77,7 +77,7 @@ print ('''
     ----------------------------------------------------------------------
     -------------------------------EXAMPLE--------------------------------
     ----------------------------------------------------------------------
-    1) The very first entity the program asks for is the number of transition state
+    1) The very first entity the program asks for is the number of transition states
     in the reaction path. The reaction above has 2 transition states, so in the first 
     prompt we enter: 2
     2) The program works on the reaction coordinate from left to right. 
