@@ -77,17 +77,17 @@ print ('''
     ----------------------------------------------------------------------
     -------------------------------EXAMPLE--------------------------------
     ----------------------------------------------------------------------
-    1) The reaction above has 2 transition states, so the first prompt we
-    enter  is 2.
-    2) The 1st point on the reaction coordinate is A+B, enter the number of 
-    files at this point.
-    3) Next we are at the first TS which is [C], enter the number of files here.
-    4) Again we are now at D so enter the number of files here... 
-    5) Rinse and repeat until you are at the last step of the reaction path.
+    1) The very first entity the program asks for is the number of transition state
+    in the reaction path. The reaction above has 2 transition states, so in the first 
+    prompt we enter: 2
+    2) The program works on the reaction coordinate from left to right. 
+    So in the next prompt, enter the number of reactants on the first step. A + B = 2
+    3) Skip directly to the intermediate (D). In this case for the prompt D = 1, so enter in: 1
+    4) Rinse and repeat until you are at the last step of the reaction path. e.g. F = 1
     
     * The program calculates the free energy change at each point and prints
       the results for the user using matplotlib. The program sets A+B as the
-      zero-point! 
+      ZPE (zero point energy). 
       
       NOTE: The program can open both .log and .out files, make sure you select 
       the proper file in the file prompt window!
